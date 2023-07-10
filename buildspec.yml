@@ -13,7 +13,7 @@ phases:
       - npm run build
   post_build:
     commands:
-      - aws s3 sync build/ <YOUR_S3_BUCKET_URL>
+      - aws s3 sync build/ http://asna-project-bucket.s3-website-us-east-1.amazonaws.com
 artifacts:
   files:
     - '**/*'
