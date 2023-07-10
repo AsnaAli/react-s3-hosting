@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - echo "Running build"
+      - npm run build
+  post_build:
+    commands:
+      - aws s3 sync build/ <YOUR_S3_BUCKET_URL>
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build
