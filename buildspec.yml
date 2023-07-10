@@ -6,14 +6,14 @@ phases:
       nodejs: 18
   pre_build:
     commands:
-      - npm install
+     // - npm install
   build:
     commands:
       - echo "Running build"
-      - npm run build
+     // - npm run build
   post_build:
     commands:
-      - aws s3 sync s3://asna-project-bucket build/ --delete
+      - aws s3 sync build/ s3://asna-project-bucket --delete
 artifacts:
   files:
     - '**/*'
