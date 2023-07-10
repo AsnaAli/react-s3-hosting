@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 14
   pre_build:
     commands:
       - npm install
@@ -15,7 +15,3 @@ phases:
   post_build:
     commands:
       - aws s3 sync build/ s3://asna-project-bucket --delete
-artifacts:
-  files:
-    - '**/*'
-  base-directory: build
